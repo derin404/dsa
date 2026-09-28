@@ -1,0 +1,28 @@
+Postfix: 8 3 2 * + 6 2 / -
+
+=== Expression Tree ===
+            2
+      /
+            6
+-
+                  2
+            *
+                  3
+      +
+            8
+
+Inorder   : ((8+(3*2))-(6/2))
+Preorder  : - + 8 * 3 2 / 6 2 
+Postorder : 8 3 2 * + 6 2 / - 
+
+=== Tree evaluation trace (postorder) ===
+  node '*': 3 * 2 = 6
+  node '+': 8 + 6 = 14
+  node '/': 6 / 2 = 3
+  node '-': 14 - 3 = 11
+Result = 11
+Arithmetic operations = 4
+Tree nodes created    = 9 (each 24 bytes)
+
+Tree eval only       (2000000 runs): 0.1185 s
+Tree build+eval+free (2000000 runs): 0.5990 s
